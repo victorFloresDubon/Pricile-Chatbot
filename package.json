@@ -1,0 +1,22 @@
+{
+  "name": "pricile-chatbot",
+  "version": "1.0.0",
+  "description": "Este proyecto enlaza la interfaz en telegram para conectar con el backend en python de ML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorFloresDubon/Pricile-Chatbot.git"
+  },
+  "author": "Leonel Diaz, Claudia Flores, Victor Flores",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorFloresDubon/Pricile-Chatbot/issues"
+  },
+  "homepage": "https://github.com/victorFloresDubon/Pricile-Chatbot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.57.0"
+  }
+}
