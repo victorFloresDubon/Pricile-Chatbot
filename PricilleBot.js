@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
+const { options } = require('request');
 const { PricilleService } = require('./service/PricilleService');
 
 
@@ -36,7 +37,7 @@ Pricille.onText(/\/start/, (msj, match) => {
     }
     // Si el mensaje es del tipo "private", entonces desplegará el texto de bienvenida junto con las opciones
     if(tipoChat=="private"){
-        Pricille.sendMessage(chatId, "¡Hola, mi nombre es Priscille! ¿Cómo puedo ayudarte?", opts);
+        Pricille.sendMessage(chatId, "¡Hola, mi nombre es Pricille! ¿Cómo puedo ayudarte?", opts);
     }
 });
 
@@ -52,6 +53,7 @@ Pricille.onText(/\^PRODUCTOS (.*)/, (msj, match) => {
     const newLocal = PricilleService.getAllProducts();
 
     Pricille.sendMessage(chatId, newLocal)
+
 })
 
 
