@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/victorFloresDubon/Pricile-Chatbot#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.57.0"
+    "node-telegram-bot-api": "^0.57.0",
+    "request": "^2.88.2"
   }
 }
