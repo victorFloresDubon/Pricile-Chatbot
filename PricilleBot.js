@@ -43,42 +43,29 @@ Pricille.onText(/\/start/, (msj, match) => {
 
 // Opción PRODUCTOS, lista todos los productos de la base de datos
 
-Pricille.onText(/\^PRODUCTOS (.*)/, (msj, match) => {
-    var messageId = msj.message_id
-    var chatId = msj.chat.id;
-    var tipoChat = msj.chat.type;
-
-    const resp = match[1]
-
-    const newLocal = PricilleService.getAllProducts();
-
-    Pricille.sendMessage(chatId, newLocal)
-
-})
-
-
-/*
 Pricille.on('message', (msg) => {
-    var messageId = msj.message_id
-    var chatId = msj.chat.id;
-    var tipoChat = msj.chat.type;
-    console.log(msj);
-    // Opciones disponibles
-    const opts = {
-        reply_to_message_id: messageId,
-        reply_markup : JSON.stringify({
-            keyboard: [
-                ['PRODUCTOS'],
-                ['PROMOCIONES'],
-                ['CLASIFICACIONES']                            
-            ],
-            'one_time_keyboard': true            
-        })
+    var messageId = msg.message_id;
+    var productos = "PRODUCTOS";
+    var promociones = "PROMOCIONES";
+    var clasificaciones = "CLASIFICACIONES";
+
+    switch(msg.text.toString()){
+
+        case productos:
+            const opts = {
+                reply_to_message_id: messageId,
+                reply_markup : JSON.stringify({
+                    keyboard: [
+                        ['PREDECIR PRECIOS']                        
+                    ],
+                    'one_time_keyboard': true            
+                })
+            }
+            Pricille.sendMessage(msg.chat.id, "Te presento las opciones de los productos", opts);
+            break;
+
     }
-    // Si el mensaje es del tipo "private", entonces desplegará el texto de bienvenida junto con las opciones
-    if(tipoChat=="private"){
-        Pricille.sendMessage(chatId, "Oops! Creo que no pude reconocer tu petición ¿Por qué no pruebas con estas opciones?", opts);
-    }
+
 });
-*/
+
 
