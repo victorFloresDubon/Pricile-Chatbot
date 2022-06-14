@@ -11,9 +11,18 @@ class PricilleService {
 
                 //console.dir(JSON.parse(body))
                 console.dir(body.explanation)
+                return body.explanation;
             })        
     }
 
+    async predecirPrecios() {
+        HttpClient.get(ServerConf.url, {json: true}, function(err, response, body) {
+            if(err){
+                return console.dir(err);
+            }
+            return body.explanation;
+        })
+    }
 }
 
 

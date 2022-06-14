@@ -44,15 +44,19 @@ Pricille.onText(/\/start/, (msj, match) => {
 // Opción PRODUCTOS, lista todos los productos de la base de datos
 
 Pricille.on('message', (msg) => {
+    const opciones = [
+        "PRODUCTOS",
+        "PREDECIR PRECIOS",
+        "PROMOCIONES",
+        "CLASIFICACIONES",
+        "REGRESA"
+    ];
     var messageId = msg.message_id;
-    var productos = "PRODUCTOS";
-    var promociones = "PROMOCIONES";
-    var clasificaciones = "CLASIFICACIONES";
 
     switch(msg.text.toString()){
 
-        case productos:
-            const opts = {
+        case opciones[0]:
+            var opts = {
                 reply_to_message_id: messageId,
                 reply_markup : JSON.stringify({
                     keyboard: [
@@ -63,7 +67,23 @@ Pricille.on('message', (msg) => {
             }
             Pricille.sendMessage(msg.chat.id, "Te presento las opciones de los productos", opts);
             break;
+        case opciones[1]:
 
+            break;
+        case opciones[4]:
+            var opts = {
+                reply_to_message_id: messageId,
+                reply_markup : JSON.stringify({
+                    keyboard: [
+                        ['PRODUCTOS'],
+                        ['PROMOCIONES'],
+                        ['CLASIFICACIONES']                            
+                    ],
+                    'one_time_keyboard': true            
+                })
+            }
+            Pricille.sendMessage(msg.chat.id, "¡Hola, mi nombre es Pricille! ¿Cómo puedo ayudarte?", opts);
+            break;
     }
 
 });
